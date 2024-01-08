@@ -20,12 +20,12 @@ jobs:
     - name: Send greeting
       run: echo "Hello ${{ inputs.name }}"
     - name: Checkout repository
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
     - name: Install node
-    - uses: actions/setup-node@v3
+      uses: actions/setup-node@v3
       with:
         node-version: 20
         cache: yarn
         
     - name: Deploy Bpmn
-    - run: node deployBpmn.ts
+      run: node deployBpmn.ts
