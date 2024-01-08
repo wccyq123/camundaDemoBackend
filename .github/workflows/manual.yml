@@ -21,5 +21,11 @@ jobs:
       run: echo "Hello ${{ inputs.name }}"
     - name: Checkout repository
       uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+       node-version: '20'
+    - name: install dependencies
+      run: npm install
     - name: Deploy Bpmn
       run: node deployBpmn.ts
