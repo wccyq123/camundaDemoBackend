@@ -20,13 +20,15 @@ async function autoUpdateVersion() {
       onConnectionError: () => console.log(`Disconnected!`),
     });
     console.log(bpmnList);
-
+    const filePath = [];
     bpmnList.forEach(async (file) => {
       console.log(file);
-      const filePath = path.join(PKG_PATH, file);
-
-      zbc.deployProcess([filePath]);
+      filePath.push(path.join(PKG_PATH, file));
     });
+    const res = await zbc.deployProcess([filePath]);
+    console.log(res);
+
+    return res;
   } catch (error) {
     console.error(error);
     throw error;

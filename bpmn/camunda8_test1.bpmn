@@ -4,7 +4,7 @@
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_1umfsoe</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:serviceTask id="Activity_15z6otn" name="123">
+    <bpmn:serviceTask id="Activity_15z6otn" name="1234">
       <bpmn:extensionElements>
         <zeebe:taskDefinition type="test" />
       </bpmn:extensionElements>
