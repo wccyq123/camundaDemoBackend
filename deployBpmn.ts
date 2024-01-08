@@ -25,10 +25,11 @@ async function autoUpdateVersion() {
       console.log(file);
       filePath.push(path.join(PKG_PATH, file));
     });
-    const res = await zbc.deployProcess([filePath]);
-    console.log(res);
+    console.log(filePath);
 
-    return res;
+    const res = await zbc.deployProcess(filePath);
+    console.log(res);
+    process.exit();
   } catch (error) {
     console.error(error);
     throw error;
