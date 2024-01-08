@@ -23,15 +23,9 @@ async function autoUpdateVersion() {
 
     bpmnList.forEach(async (file) => {
       console.log(file);
-
       const filePath = path.join(PKG_PATH, file);
-      const data = await fsp.readFile(filePath, 'utf8');
-      console.log(data);
 
-      zbc.deployProcess({
-        definition: data,
-        name: file,
-      });
+      zbc.deployProcess([filePath]);
     });
   } catch (error) {
     console.error(error);
