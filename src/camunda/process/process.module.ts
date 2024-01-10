@@ -10,10 +10,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ProcessDefinition } from 'src/repository/camunda/entity/ACT_RE_PROCDEF.entity';
 import { ProcessController } from './process.controller';
 import { ProcessService } from './process.service';
+import { ZbcService } from '../zbc.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([ProcessDefinition], 'camunda')],
-  providers: [ProcessService],
+  providers: [ProcessService, ZbcService],
   controllers: [ProcessController],
 })
 export class ProcessModule { }

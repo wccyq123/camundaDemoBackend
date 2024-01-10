@@ -7,6 +7,7 @@ import { KafkaModule } from './kafka/kafka.module';
 import { UserModule } from './camunda/user/user.module';
 import { ProcessModule } from './camunda/process/process.module';
 import { GroupModule } from './camunda/group/group.module';
+import { ZbcService } from './camunda/zbc.service';
 
 @Module({
   imports: [
@@ -37,7 +38,8 @@ import { GroupModule } from './camunda/group/group.module';
     ProcessModule,
     GroupModule,
   ],
+  exports: [ZbcService],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, ZbcService],
 })
 export class AppModule { }

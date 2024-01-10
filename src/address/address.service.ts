@@ -20,41 +20,41 @@ export class AddressService {
     private readonly ActIdUserRepository: Repository<ActIdUser>,
     private connection: Connection,
   ) {
-    const config = {
-      baseUrl: 'http://localhost:8080/engine-rest',
-      use: logger,
-    };
+    // const config = {
+    //   baseUrl: 'http://localhost:8080/engine-rest',
+    //   use: logger,
+    // };
 
-    // create a Client instance with custom configuration
-    const client = new Client(config);
+    // // create a Client instance with custom configuration
+    // const client = new Client(config);
 
-    // susbscribe to the topic: 'creditScoreChecker'
-    client.subscribe('charge-card', async function ({ task, taskService }) {
-      // Put your business logic
-      // complete the task
-      console.log(task.variables.getAll(), 'charge-card', new Date().getTime());
-      // const variables = new Variables();
-      // variables.set('amount', 1400);
-      await taskService.complete(task);
-    });
+    // // susbscribe to the topic: 'creditScoreChecker'
+    // client.subscribe('charge-card', async function ({ task, taskService }) {
+    //   // Put your business logic
+    //   // complete the task
+    //   console.log(task.variables.getAll(), 'charge-card', new Date().getTime());
+    //   // const variables = new Variables();
+    //   // variables.set('amount', 1400);
+    //   await taskService.complete(task);
+    // });
 
-    client.subscribe('payment-result', async function ({ task, taskService }) {
-      // Put your business logic
-      // complete the task
-      console.log(
-        task.variables.getAll(),
-        'payment-result',
-        new Date().getTime(),
-      );
-      await taskService.complete(task);
-    });
+    // client.subscribe('payment-result', async function ({ task, taskService }) {
+    //   // Put your business logic
+    //   // complete the task
+    //   console.log(
+    //     task.variables.getAll(),
+    //     'payment-result',
+    //     new Date().getTime(),
+    //   );
+    //   await taskService.complete(task);
+    // });
 
-    client.subscribe('get-range', async function ({ task, taskService }) {
-      // Put your business logic
-      // complete the task
-      console.log(task.variables.getAll(), 'get-range', new Date().getTime());
-      await taskService.complete(task);
-    });
+    // client.subscribe('get-range', async function ({ task, taskService }) {
+    //   // Put your business logic
+    //   // complete the task
+    //   console.log(task.variables.getAll(), 'get-range', new Date().getTime());
+    //   await taskService.complete(task);
+    // });
   }
 
   async findme(): Promise<string> {
